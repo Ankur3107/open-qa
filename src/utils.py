@@ -33,7 +33,7 @@ class DataProcessor:
         self.document_store.update_embeddings(retriever)
 
 
-class Data_Retriever:
+class DataRetriever:
     def __init__(self, document_store):
         self.document_store = document_store
         self.retriever = DensePassageRetriever(
@@ -66,7 +66,7 @@ class Data_Retriever:
         return documents
 
 
-class Reranker:
+class DataReranker:
     def __init__(
         self, model_name="cross-encoder/ms-marco-MiniLM-L-12-v2", max_length=256
     ):
@@ -91,10 +91,10 @@ class Reranker:
 
         return pairs
 
-    def get_top_k_reranker_result(
+    def get_top_k_Data_reranker_result(
         self, retrieve_documents, top_k_ranker, shorted_index, shorted_scores
     ):
-        retrieve_reranker_documents = []
+        retrieve_Data_reranker_documents = []
         for i in range(len(shorted_index)):
             i_index = shorted_index[i]
             i_score = shorted_scores[i]
@@ -106,9 +106,9 @@ class Reranker:
                 ij_retrieve_documents.score = i_score[j]
                 i_shorted_retrieve_documents.append(ij_retrieve_documents)
 
-            retrieve_reranker_documents.append(i_shorted_retrieve_documents)
+            retrieve_Data_reranker_documents.append(i_shorted_retrieve_documents)
 
-        return retrieve_reranker_documents
+        return retrieve_Data_reranker_documents
 
     def run(self, queries, retrieve_documents, top_k_ranker=3, top_k_retrieve=5):
         pre_processed_ranker_input = self.batch_ranker_input_data_format(
@@ -121,13 +121,13 @@ class Reranker:
         shorted_scores = np.array(
             [scores[i][shorted_index[i]] for i in range(len(shorted_index))]
         )
-        retrieve_reranker_documents = self.get_top_k_reranker_result(
+        retrieve_Data_reranker_documents = self.get_top_k_Data_reranker_result(
             retrieve_documents, top_k_ranker, shorted_index, shorted_scores
         )
-        return retrieve_reranker_documents
+        return retrieve_Data_reranker_documents
 
 
-class Data_Reader:
+class DataReader:
     def __init__(self):
         self.reader = FARMReader(
             model_name_or_path="deepset/roberta-base-squad2", use_gpu=True
