@@ -142,7 +142,7 @@ class DataReader:
             query_doc_list.append({"docs": documents, "question": query})
         return query_doc_list
 
-    def run(self, queries, reranked_documents, batch_size=8, top_k_reader=2):
+    def run(self, queries, reranked_documents, batch_size=32, top_k_reader=10):
         query_doc_list = self.reader_preprocessing(queries, reranked_documents)
         results = self.reader.predict_batch(
             query_doc_list, top_k=top_k_reader, batch_size=batch_size
