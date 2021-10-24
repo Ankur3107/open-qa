@@ -25,3 +25,21 @@
       # Run entity linking for the target phrase denoted as [START_ENT] and [END_ENT]
       >>> model.search('[START_ENT] Security Council [END_ENT] members expressed concern on Thursday', retrieval_unit='document', top_k=1)
       ['United Nations Security Council']
+      
+# docTTTTTquery document expansion model
+  https://github.com/castorini/docTTTTTquery
+  https://huggingface.co/castorini/doc2query-t5-base-msmarco
+
+# Training Dense Retrieval with Balanced Topic Aware Sampling (TAS-Balanced)
+  https://github.com/sebastian-hofstaetter/tas-balanced-dense-retrieval
+  https://huggingface.co/sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco
+  
+# Margin-MSE Trained DistilBert for Dense Passage Retrieval
+  https://github.com/sebastian-hofstaetter/neural-ranking-kd
+  https://huggingface.co/sebastian-hofstaetter/distilbert-dot-margin_mse-T2-msmarco
+  
+# Intra-Document Cascading (IDCM)
+This instance can be used to re-rank a candidate set of long documents. The base BERT architecure is a 6-layer DistilBERT.
+  https://github.com/sebastian-hofstaetter/intra-document-cascade
+  https://huggingface.co/sebastian-hofstaetter/idcm-distilbert-msmarco_doc
+  
