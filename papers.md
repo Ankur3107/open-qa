@@ -14,3 +14,11 @@
   https://arxiv.org/pdf/2109.03502.pdf
   https://arxiv.org/pdf/2102.10697.pdf
   https://github.com/KNOT-FIT-BUT/R2-D2
+
+# TSDAE (Tranformer-based Denoising AutoEncoder)
+  https://arxiv.org/pdf/2104.06979.pdf
+  https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/TSDAE/README.md
+  
+# GPL: Generative Pseudo Labeling for Unsupervised Domain Adaptation of Dense Retrieval
+  https://arxiv.org/pdf/2112.07577.pdf
+  https://github.com/UKPLab/gpl
